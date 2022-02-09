@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DeathStar_ControlModule.Data.Nave>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+    <a asp-action="Sync">Sincronizar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Passageiros)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Carga)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Classe)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Modelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Passageiros)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Carga)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Classe)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NaveId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.NaveId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.NaveId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

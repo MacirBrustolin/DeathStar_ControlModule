@@ -1,0 +1,70 @@
+﻿@model DeathStar_ControlModule.Data.Nave
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Nave</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Passageiros)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Passageiros)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Carga)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Carga)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Classe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Classe)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Pilotos)
+        </dt>
+        <dd class="col-sm-10">
+            <table class="table">
+                <tr>
+                    <th>Nome do Piloto</th>
+                    <th>Planeta Nascimento</th>
+                </tr>
+                @foreach (var item in Model.Pilotos)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Planetas.Nome)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.NaveId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
